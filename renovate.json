@@ -1,0 +1,35 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "ignoreTests": true,
+    "packageRules": [
+        {
+            "matchCategories": [
+                "python"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "draftPR": true,
+            "automerge": false,
+            "groupName": null
+        },
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
+            "automerge": true,
+            "automergeType": "branch",
+            "postUpgradeTasks": {
+                "commands": [
+                    "VERSION=$(grep '^version = \"' pyproject.toml | awk -F '\"' '{print $2}' | awk -F. '/[0-9]+\\./{$NF++;print}' OFS=.)",
+                    "sed 's|^version = .*$|version = \"$VERSION\"|g' pyproject.toml"
+                ],
+                "executionMode": "branch"
+            },
+            "groupName": "all non-major dependencies"
+        }
+    ]
+}

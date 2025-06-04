@@ -1,0 +1,60 @@
+[project]
+name = "ldp-l2c-unitsync"
+description = "LDP L2C Units Synchronizer"
+authors = [
+    {name = "Pierre Frayer", email = "pierre.frayer@ovhcloud.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<3.14"
+dependencies = [
+    "jinja2~=3.1.6",
+    "ovhrequests~=2.0.4",
+    "ovh-pyvault~=2.5",
+    "pydantic~=2.11.3",
+    "pyyaml~=6.0.2"
+]
+dynamic = [ "version" ]
+
+[project.optional-dependencies]
+dev = [ "black", "bump2version", "pylint" ]
+tests = [ "pytest", "pytest-cov", "pytest-mock" ]
+
+[tool.poetry]
+version = "0.0.12"
+
+[[tool.poetry.source]]
+name = "ldp-default-pypi"
+url = "https://artifactory.ovhcloud.tools/artifactory/api/pypi/ldp-default-pypi/simple/"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+command_line = "-m pytest --junitxml=pytest-report.xml"
+source = ["src"]
+omit = ["*tests*"]
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.pylint."messages control"]
+max-line-length = 100
+disable = [
+    "logging-not-lazy",
+    "logging-fstring-interpolation",
+    "too-few-public-methods",
+    "too-many-instance-attributes",
+    "fixme,duplicate-code"
+]
+
+[tool.pylint.report]
+output-format = "parseable"
