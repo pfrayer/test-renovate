@@ -7,17 +7,15 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.9,<3.14"
 dependencies = [
-    "jinja2~=3.1.6",
-    "ovhrequests~=2.0.4",
-    "ovh-pyvault~=2.5",
-    "pydantic~=2.11.3",
-    "pyyaml~=6.0.2"
+    "jinja2==3.1.6",
+    "pydantic==2.11.3",
+    "pyyaml==6.0.2"
 ]
 dynamic = [ "version" ]
 
 [project.optional-dependencies]
-dev = [ "black", "bump2version", "pylint" ]
-tests = [ "pytest", "pytest-cov", "pytest-mock" ]
+dev = [ "black==25.1.0", "bump2version==1.0.1 ", "pylint==3.3.7" ]
+tests = [ "pytest==8.4.0 ", "pytest-cov==6.1.1", "pytest-mock==3.14.1" ]
 
 [tool.poetry]
 version = "0.0.12"
