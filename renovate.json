@@ -1,7 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "ignoreTests": true,
-    "allowedCommands": ["^poetry version minor$"],
     "packageRules": [
         {
             "matchCategories": [
@@ -25,6 +24,8 @@
             "automergeType": "branch",
             "postUpgradeTasks": {
                 "commands": [
+                    // "VERSION=$(grep '^version = \"' pyproject.toml | awk -F '\"' '{print $2}' | awk -F. '/[0-9]+\\./{$NF++;print}' OFS=.)",
+                    // "sed 's|^version = .*$|version = \"$VERSION\"|g' pyproject.toml"
                     "poetry version minor"
                 ],
                 "executionMode": "branch"

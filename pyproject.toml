@@ -8,14 +8,15 @@ readme = "README.md"
 requires-python = ">=3.9,<3.14"
 dependencies = [
     "jinja2==3.1.6",
-    "pydantic==2.11.7",
-    "pyyaml==6.0.2"
+    "pydantic==2.11.3",
+    "pyyaml==6.0.2",
+    "sentry-sdk==2.32.0"
 ]
 dynamic = [ "version" ]
 
 [project.optional-dependencies]
-dev = [ "black==25.1.0", "bump2version==1.0.1 ", "pylint==3.3.7" ]
-tests = [ "pytest==8.4.1", "pytest-cov==6.2.1", "pytest-mock==3.14.1" ]
+dev = [ "black==25.1.0", "pylint==3.3.7" ]
+tests = [ "pytest==8.4.0 ", "pytest-cov==6.1.1", "pytest-mock==3.14.0" ]
 
 [tool.poetry]
 version = "0.0.12"
