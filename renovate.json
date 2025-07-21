@@ -5,9 +5,24 @@
         {
             "matchCategories": [
                 "python"
+            ],
+            "registryUrls": [
+                "https://artifactory.ovhcloud.tools/artifactory/api/pypi/ldp-default-pypi/simple"
             ]
         },
         {
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "draftPR": true,
+            "automerge": false,
+            "groupName": null
+        },
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
             "automerge": false,
             "postUpgradeTasks": {
                 "commands": [
@@ -15,7 +30,7 @@
                 ],
                 "executionMode": "branch"
             },
-            "groupName": "all dependencies"
+            "groupName": "all non-major dependencies"
         }
     ]
 }
