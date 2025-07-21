@@ -24,8 +24,7 @@
             "automergeType": "branch",
             "postUpgradeTasks": {
                 "commands": [
-                    "VERSION=$(grep '^version = \"' pyproject.toml | awk -F '\"' '{print $2}' | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')",
-                    "sed -i \\"s/^version = .*$/version = \"$VERSION\"/g\\" pyproject.toml"
+                    "poetry version minor"
                 ],
                 "executionMode": "branch"
             },
