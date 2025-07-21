@@ -24,7 +24,7 @@
             "automergeType": "branch",
             "postUpgradeTasks": {
                 "commands": [
-                    "poetry version minor"
+                    "poetry version patch"
                 ],
                 "executionMode": "branch"
             },
