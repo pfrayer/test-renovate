@@ -5,9 +5,6 @@
         {
             "matchCategories": [
                 "python"
-            ],
-            "registryUrls": [
-                "https://artifactory.ovhcloud.tools/artifactory/api/pypi/ldp-default-pypi/simple"
             ]
         },
         {
