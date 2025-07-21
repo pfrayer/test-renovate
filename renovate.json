@@ -5,6 +5,9 @@
         {
             "matchCategories": [
                 "python"
+            ],
+            "registryUrls": [
+                "https://artifactory.ovhcloud.tools/artifactory/api/pypi/ldp-default-pypi/simple"
             ]
         },
         {
@@ -24,8 +27,9 @@
             "automergeType": "branch",
             "postUpgradeTasks": {
                 "commands": [
-                    "VERSION=$(grep '^version = \"' pyproject.toml | awk -F '\"' '{print $2}' | awk -F. '/[0-9]+\\./{$NF++;print}' OFS=.)",
-                    "sed 's|^version = .*$|version = \"$VERSION\"|g' pyproject.toml"
+                    "VERSION=$(grep '^version = \"' pyproject.toml | awk -F '\"' '{print $2}' | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')",
+                    "echo $VERSION",
+                    "sed -i \"s/^version = .*$/version = \\\"$VERSION\\\"/g\" pyproject.toml"
                 ],
                 "executionMode": "branch"
             },
