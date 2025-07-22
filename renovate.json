@@ -30,5 +30,8 @@
             },
             "groupName": "all non-major dependencies"
         }
-    ]
+    ],
+    "pre-commit": {
+        "enabled": true
+    }
 }
