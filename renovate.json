@@ -3,19 +3,6 @@
     "ignoreTests": true,
     "packageRules": [
         {
-            "matchCategories": [
-                "python"
-            ]
-        },
-        {
-            "matchUpdateTypes": [
-                "major"
-            ],
-            "draftPR": true,
-            "automerge": false,
-            "groupName": null
-        },
-        {
             "matchUpdateTypes": [
                 "minor",
                 "patch"
